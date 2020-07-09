@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live 🔴</title>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+</head>
+
+<body>
+    <img id="play" src="" style="width:700px; height: 500px;">
+    
+
+    <script type="text/javascript">
+        const socket = io();
+        socket.on('stream', function(image){
+            const img = document.getElementById("play")
+            img.src = image
+            $("#logger").text(image)
+        });
+    </script>
+</body>
+</html>
